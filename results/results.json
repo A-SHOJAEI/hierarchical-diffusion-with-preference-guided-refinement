@@ -1,0 +1,24 @@
+{
+  "project": "Hierarchical Diffusion with Preference-Guided Refinement",
+  "model": {
+    "base_model_parameters": "~150M (U-Net with text conditioning)",
+    "preference_trainable_parameters": 6117121,
+    "adapter_type": "LoRA (rank-4, ~4% of base)"
+  },
+  "stage1_base_diffusion": {
+    "epochs": 10,
+    "final_train_loss": 0.5473,
+    "final_val_loss": 0.5391,
+    "best_val_loss": 0.5383,
+    "best_val_loss_epoch": 9
+  },
+  "stage2_preference_refinement": {
+    "epochs": 5,
+    "final_train_loss": 0.2483,
+    "final_train_accuracy": 0.5120,
+    "final_val_loss": 0.2500,
+    "final_val_accuracy": 0.1905,
+    "best_val_accuracy": 0.3532,
+    "best_val_accuracy_epoch": 2
+  }
+}

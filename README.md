@@ -85,14 +85,11 @@ Training completed successfully with the following metrics:
 | Training Accuracy | 50-75% | Batch-level preference accuracy |
 | Trainable Parameters | 6.1M | LoRA adapters only (4% of base) |
 
-### Expected Evaluation Metrics
-Run `python scripts/evaluate.py` to compute:
-- FID Score (target < 25.0): Frechet Inception Distance
-- CLIP Score (target > 0.28): Text-image alignment quality
-- Preference Win Rate (target > 65%): Comparison vs baseline
-- Inference Time (target < 3000ms): Generation speed per image
+### Notes
 
-Results will be saved to `results/metrics.json` after evaluation.
+- The base diffusion model achieves a best validation loss of **0.5383**, indicating stable denoising learning on the training data.
+- The preference refinement stage reaches **35.3% validation accuracy** at its peak (epoch 2) before overfitting, with the model settling around 19% by epoch 5. Training accuracy reaches ~51%, suggesting the preference signal is noisy.
+- Run `python scripts/evaluate.py` to compute FID score, CLIP score, preference win rate, and inference time on generated samples.
 
 ## Project Structure
 
